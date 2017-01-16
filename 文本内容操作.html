@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			// 操作 文本内容
+			// .text()
+			// 作用： 用来读取或者是设置文本内容
+			$("button").click(function() {
+				// 获取内容
+				// console.log( $('div').text() );
+				// console.log( $('div').html() );
+
+				// 设置内容
+				// 会把原来的内容清空，然后，再设置新的内容
+				$("div").text( "陈奕迅" );
+			});
+			
+			// .html()/.text()/.val()
+			// innerHMTL / innerText或者textContent / value
+			// 
+			// 有一个参数表示设置
+			// 没有参数表示获取
+		});
+	</script>
+</head>
+<body>
+	<button>表单值</button>
+	
+	<div id="dv">
+		<h1>这是div的 标题</h1>
+		<p>周杰伦</p>
+		<p>张学友</p>
+	</div>
+</body>
+</html>

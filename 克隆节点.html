@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			// 给p元素绑定事件
+			$("p").click(function() {
+				alert("额了吗");
+			});
+			
+			$("button").click(function() {
+				// 克隆节点
+				// .clone()
+				// 作用：用来 克隆一个节点，不传参数表示深度赋值！
+				// 
+				// js中的 .cloneNode() 传入参数表示深度赋值，如果不传入参数只会赋值当前元素本身
+
+				// 赋值p元素
+				// clone() 方法的返回值：是一个jQuery对象
+				/*var $p = $("p").clone();
+				$p.css("color", "red");
+				$p.css("font-size", "40px");
+
+				$("#dv").append( $p );*/
+
+
+				// clone() 有一个参数为：true
+				// 这个参数如果为 true，表示能够克隆事件
+				var $p = $("p").clone( true );
+				$p.css("color", "red");
+				$p.css("font-size", "40px");
+
+				$("#dv").append( $p );
+			});
+		});
+	</script>
+</head>
+<body>
+	
+	<button>操作DOM</button>
+	
+	<div>
+		<h1>这是div的标题</h1>
+		<p>这是p元素 <a href="http://web.itcast.cn/">传智-大前端</a></p>
+	</div>
+
+	<div id="dv"></div>
+</body>
+</html>

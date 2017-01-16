@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			// 属性操作：
+			// .attr()
+			// 作用： 用来设置或者是获取属性的值
+			// 这个方法用法跟 .css() 方法相同
+			// html的属性可能有多个，所以不管是设置还是读取都需要指定一个属性！
+			// 可以操作普通的属性或者 自定义的属性！
+
+			/*$("button").click(function() {
+				// 获取属性
+				// var str = $("a").attr("style");
+				// console.log(str);
+
+				// 设置属性
+				// $("a").attr("title", "这是设置的属性");
+				// console.log( $("a").attr("chuanzhi") );
+			});*/
+
+			
+			// 特殊的属性
+			// 
+			// 注意：checked、selected、disabled要使用 .prop() 方法。
+			// prop方法通常用来影响DOM元素的动态状态，而不是改变的HTML属性。例如：input和button的disabled特性，以及checkbox的checked特性。
+			// 细节参考：http://api.jquery.com/prop/
+			// 
+			// .prop() ===> property  (特性)
+			// .attr() ===> attribute (属性)
+			$("#btn1").click(function() {	
+				// 设置选中
+				// $("#cbx").attr("checked", true);
+				// $("#cbx").attr("checked", "checked");
+
+				$("#cbx").prop("checked", true);
+			});
+			$("#btn2").click(function() {	
+				// 设置选中
+				// $("#cbx").attr("checked", "");
+
+				$("#cbx").prop("checked", false);
+			});
+		});
+	</script>
+</head>
+<body>
+	<!-- <button>属性操作</button> -->
+	<button id="btn1">设置选中</button>
+	<button id="btn2">不选中</button>
+	<!-- <a href="http://itcast.cn/" chuanzhi="怎么厉害" style="color: red; font-size: 30px;" title="这是a标签">传智就是N</a> -->
+
+	<!-- 只要有 checked 这个属性就会被选中，不管值是什么值 -->
+	<input type="checkbox" id="cbx" checked>
+</body>
+</html>

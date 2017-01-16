@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("button").click(function() {
+				// .empty()
+				// 作用：清空子元素
+				// $("div").empty();
+
+				// 使用.html()清空子元素
+				$("div").html("");
+
+				// .remove()
+				// 作用：把当前元素从页面中删除（"自杀"）
+				// $('div').remove();
+			});
+		});
+	</script>
+</head>
+<body>
+	
+	<button>操作DOM</button>
+	
+	<div>
+		<h1>这是div的标题</h1>
+		<p>这是p元素</p>
+	</div>
+</body>
+</html>

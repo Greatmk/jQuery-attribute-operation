@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			// $dv.append( $span ); 这个方法是把 $span 追加到 $dv 中去
+
+			// $(selector).appendTo(node);  作用：同append()，区别是：把$(selector)追加到node中去
+			// $(selector).prepend(node);   作用：在元素的第一个子元素前面追加内容或节点
+			// $(selector).after(node);     作用：在被选元素之后，作为兄弟元素插入内容或节点
+			// $(selector).before(node);    作用：在被选元素之前，作为兄弟元素插入内容或节点
+			
+			$("button").click(function() {
+				// appendTo 方法的参数可以是：jQuery选择器
+				// $("p").appendTo("div");
+
+				// 往 div 的第一个子元素的前面插入元素
+				// $("div").prepend( $("p") );
+				// 
+				// DOM的方法： insertBefore() / appendChild()
+				// 
+				 //$("div").prepend( $("p") );
+				// $("p").prependTo( "div" );
+
+				// 在这个例子中，会将p元素移动到 div 的后面，作为div元素的兄弟元素
+				// $("div").after( $("p") );
+
+				// 往前添加（做为兄弟元素）
+				$("div").before( $("p") );
+			});
+		});
+	</script>
+</head>
+<body>
+	
+	<button>操作DOM</button>
+	
+	<div>
+		<h1>这是div的标题</h1>
+		<p>这是p元素</p>
+	</div>
+</body>
+</html>

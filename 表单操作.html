@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			// 表单操作
+			// 表单元素：
+			// 		input标签(text/radio/checkbox/button/submit/reset/password/file)
+			// 		select
+			// 		textarea
+			// .val() 作用：用来获取表元素的值
+			// 不传入参数表示 读取
+			// 传入参数表示   设置
+			
+			$("button").click(function() {
+				// console.log( $("#txt").val() );
+				// $("#txt").val( "吃了吗" );
+
+				// console.log( $("select").val() );
+				// $("select").val(2);
+
+				console.log( $("#o1").text() );
+			});
+		});
+	</script>
+</head>
+<body>
+	<button>表单值</button>
+	
+	<div id="dv">
+		<!-- <input type="text" id="txt"> -->
+		<select>
+			<option value="0">--请选择--</option>
+			<option value="1" id="o1">痴心绝对</option>
+			<option value="2">单身情歌</option>
+		</select>
+	</div>
+</body>
+</html>
