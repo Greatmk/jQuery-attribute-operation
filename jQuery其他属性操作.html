@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		div#outer {
+			height: 400px;
+			width: 300px;
+			background-color: pink;
+			position: relative;
+		}
+
+		div#inner {
+			height: 100px;
+			width: 100px;
+			background-color: green;
+			position: absolute;
+			top: 100px;
+		}
+
+		body {
+			height: 2000px;
+		}
+
+
+		.outer {
+			height: 300px;
+			width: 300px;
+			overflow: scroll;
+		}
+		.inner {
+			height: 2000px;
+			width: 2000px;
+			background-color: hotpink;
+		}
+	</style>
+
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			// 高度和宽度
+			// 与 .css() 的区别：height()/width() 方法的返回值是：数值类型
+			// $("#btn1").click(function() {
+			// 	// 获取div的高度
+			// 	// var h = $("#outer").css("height");
+			// 	// console.log(h);
+
+			// 	// 通过height()方法来获取或者是设置高度
+			// 	// 返回值：数值类型
+			// 	// var h = $("#outer").height();
+			// 	// console.log(h);
+
+			// 	// 设置
+			// 	// $("#outer").height(800);
+
+			// 	// .width()
+			// 	// 作用：用来设置或者读取宽度
+			// 	// var h = $("#outer").width();
+			// 	// console.log(h);
+
+			// 	// 设置
+			// 	$("#outer").width(800);
+			// });
+
+			// 位置操作
+			$("#btn2").click(function() {
+				// .offset()
+				// 作用：用来获取或设置指定的jQuery对象相对于页面左上角的偏移
+				// 返回值：是一个对象，对象中包含了两个属性
+				// 			一个left属性：获取相对于页面左边的距离
+				// 			一个top属性： 获取相对于页面上边的距离
+				// console.log( $("#outer").offset() );
+
+				// 设置偏移的时候，参数必须是一个对象
+				// 对象属性的值：只能是数值
+				// 设置偏移的时候，如果当前的元素没有定位或者是 static
+				// 那么，jQuery会自动将其定位修改为：relative
+				// 但是如果有定位，那么jQuery就不会修改当前元素的定位！
+				// $("#outer").offset({left: 100, top: 100});
+
+				// 有定位的情况
+				// 注意：不管有没有定位的父元素，都是相对于页面左上角的偏移
+				// console.log( $("#inner").offset() );
+
+				// .position()
+				// 注意： 只能读取，不能设置！
+				// 作用： 获取相对于有定位的父元素的偏移
+				// 如果想要设置位置，要通过 .css() 方法来设置！
+				// 返回值：也是一个对象
+				console.log( $("#inner").position() );
+			});
+
+
+			// 获取或设置卷去的高度
+			var step = 0;
+			$("#btn3").click(function() {
+				// .scrollTop()	作用：获取或设置垂直方向被卷去的高度
+				// .scrollLeft() 作用：获取或设置水平方向被卷去的高度
+
+				// console.log( $(".outer").scrollTop() );
+				// console.log( $(".outer").scrollLeft() );
+				// step += 200;
+				// 设置滚动
+				// $(".outer").scrollTop(step);
+				// $(".outer").scrollLeft(step);
+
+				$(".outer").animate({scrollTop: 2000});
+			});
+		});
+	</script>
+</head>
+<body>
+	<button id="btn1">高度和宽度</button>
+	<button id="btn2">位置操作</button>
+	<button id="btn3">卷去的高度</button>
+
+	<!-- <div id="outer">
+		<div id="inner"></div>
+	</div> -->
+
+	<div class="outer">
+		<div class="inner"></div>
+	</div>
+</body>
+</html>

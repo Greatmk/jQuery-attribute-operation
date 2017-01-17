@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    .wrap {
+        width: 400px;
+        height: 400px;
+        margin: 100px auto 0;
+    }
+    
+    .wrap h1 {
+        text-align: center;
+    }
+    
+    .wrap div {
+        width: 400px;
+        height: 300px;
+        background: pink;
+        font-size: 30px;
+        text-align: center;
+        line-height: 300px;
+    }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+    $(function() {
+        // 有三个事件与 按键相关： keydown / keypress / keyup
+        // 1 给doucment文档绑定 keydown 事件
+        
+        // 创建一个对象，用来实现控制颜色
+        var bgObj = {
+            "82": "red",
+            "72": "hotpink",
+            "71": "green"
+        };
+
+        $(document).on("keydown", function(e) {
+            // console.log(e.keyCode);
+
+            // 2 展示按键的 值
+            $("#keyCodeSpan").text( e.keyCode );
+
+            // 3 根据按键的键值，来改变div的颜色
+            //      改变颜色思路：
+            //      1 使用if-else判断
+            //      2 使用switch-case判断
+            //      3 使用对象（键为：数值，值为：颜色值）
+
+            // 4 设置默认颜色
+            // 如果访问了对象中不存在的属性，属性的值为： undefined
+            // 逻辑或：如果第一个表达式的值能够转化为布尔值false，就会返回第二个表达式的值
+            $("#bgChange").css("background-color", bgObj[e.keyCode] || "gold");
+
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>按键改变颜色</h1>
+        <div id="bgChange">keyCode为：<span id="keyCodeSpan"></span></div>
+    </div>
+</body>
+
+</html>

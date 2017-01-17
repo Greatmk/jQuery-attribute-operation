@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div {
+			height: 300px;
+			width: 300px;
+			background-color: hotpink;
+			margin-bottom: 10px;
+		}
+
+		p {
+			height: 100px;
+			width: 100px;
+			background-color: green;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// 绑定事件
+			$("#btn1").on("click", function() {
+				// 给div元素绑定事件
+				// $("div").on("click", function() {
+				// 	alert("饿了吗？");
+				// });
+				// $("div").on("mouseenter", function() {
+				// 	alert("饿了吗？ -------1");
+				// });
+
+				// 通过代理事件绑定的方式
+				$("div").on("click", "p", function() {
+					alert("这是通过代理绑定的事件");
+				});
+				// 给元素自身绑定的事件
+				$("div").on("click", function() {
+					alert("饿了吗？");
+				});
+			});
+
+			// 解绑事件
+			$("#btn2").on("click", function() {
+				// $("div")
+				// 如果使用的是on绑定的事件就用 off() 来解绑事件
+				// 
+				// 1 不传入参数，表示将所有的事件，全部都解绑
+				// $("div").off();
+
+				// 2 传入参数：字符串形式的，事件名称
+				// 		用来解除某一个事件的绑定
+				// $("div").off("mouseenter");
+
+				// 3 传入两个参数：
+				// 		第一个参数：表示要解除绑定的事件名称
+				// 		第二个参数："**", 用来指定只解除通过代理绑定的事件，
+				// 					给元素自身绑定的事件不会被移除！
+				$("div").off("click", "**");
+			});
+		});
+	</script>
+</head>
+<body>
+	<button id="btn1">绑定事件</button>
+	<button id="btn2">解绑事件</button>
+	
+	<div>
+		<p></p>
+	</div>
+</body>
+</html>

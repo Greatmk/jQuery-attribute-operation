@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div {
+			height: 400px;
+			width: 400px;
+			background-color: pink;
+			margin: 0 auto;
+			font-size: 30px
+		}
+		div > p {
+			height: 200px;
+			width: 200px;
+			background-color: green;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			// .on(事件名称, 触发事件的选择器, 事件处理程序)
+			// $dv.on("click", ".b", function() {});
+			
+			// 方式一：通过代理绑定事件的方式（支持动态创建出来的元素）
+			// 
+			// 通过这种方式绑定事件有什么优势？？
+			// 1 支持给动态创建出来的元素绑定事件
+			// 2 绑定事件的效率高、性能好
+			// 		比如：给100个li绑定事件，普通的方式需要绑定100次
+			// 			通过on绑定事件只需要给 父元素ul绑定一次事件即可！
+			// 			.on("click", "li", function() {})
+			// 3 .on() 方法只能在 jQuery的1.7版本之后才能使用
+			// 4 jQuery框架内部使用 on 统一实现了所有其他绑定事件方法
+			// 5 兼容移动端 zepto.js 这个库，也支持on绑定事件！
+			
+			$("div").on("click", ".b", function() {
+				alert("按钮！！");
+			});
+
+			// 方式二：同时绑定多个事件
+			// 是给div元素绑定的事件，并且也是div元素本身触发事件
+			// 没有限制哪个元素触发事件，也就是：任何在div元素中的内容都会触发
+			// 这个事件！
+			// $("div").on("click", function() {
+			// 	console.log("事件执行了");
+			// });
+
+			// 同时绑定两个事件，事件处理程序相同
+			/*$("div").on("click mouseenter", function() {
+				console.log("事件执行了");
+			});	*/
+
+			// 同时绑定了两个事件，并且事件处理程序不同
+			// $("div").on({
+			// 	click: function() {
+			// 		console.log("how are you ?");
+			// 	},
+			// 	mouseenter: function() {
+			// 		console.log("how old are you?");
+			// 	}
+			// });	
+
+			$("input").click(function(){
+				$("div").append( "<p class='b'>这是动态创建处理的p</p>" );
+			});
+		});
+	</script>
+</head>
+<body>
+	<input type="button" value="创建元素">
+	<div>
+		div元素
+		<p>p元素</p>
+		<button class="b">按钮</button>
+	</div>
+</body>
+</html>

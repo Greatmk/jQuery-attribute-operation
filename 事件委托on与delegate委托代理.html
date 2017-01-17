@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script src="jquery-1.12.4.js"></script>
+<script>
+//要求：点击button按钮，之后，点击创建id='aa'事件，让其触发！
+    $(function(){
+        $('button').click(function(){
+            $('p').append('<div id="aa">我是创建出来的</div>');
+        });
+
+        //方法一：
+        // $('p').on('click','#aa',function(){
+        //     alert(1);
+        // });
+
+
+
+
+        //方法二：
+        $('#parent').delegate('#aa','click',function(){
+            alert(1);
+        });
+
+    });
+</script>
+<body>
+    <div id="parent">
+        <p>
+            <a href="">哈哈哈哈哈</a>
+
+        </p>
+        
+        <button>点我</button>
+    </div>
+</body>
+</html>

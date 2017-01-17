@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div {
+			height: 400px;
+			width: 400px;
+			background-color: pink;
+			margin: 0 auto;
+			font-size: 30px
+		}
+		div > p {
+			height: 200px;
+			width: 200px;
+			background-color: green;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			/*$("div").click(function(event) {
+				if(event.target.nodeName === "BUTTON") {
+					console.log("div   的单击事件执行了");
+				}
+				
+			});*/
+			
+			$("div").delegate("button", "click", function() {
+				console.log("button   的单击事件执行了");
+			});
+
+			// $("p").click(function() {
+			// 	console.log("p   的单击事件执行了");
+			// });
+
+			// $("body").click(function() {
+			// 	console.log("body");
+			// });
+		});
+	</script>
+</head>
+<body>
+	<div>
+		div元素
+		<p>p元素</p>
+		<button>按钮</button>
+	</div>
+</body>
+</html>

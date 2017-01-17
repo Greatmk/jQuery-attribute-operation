@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div {
+			height: 300px;
+			width: 300px;
+			background-color: hotpink;
+			margin-bottom: 10px;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// js 绑定的事件：
+			// var dv = document.getElementById("dv");
+			// 1 dv.onclick = function() {}
+			// 
+			// 2 W3C标准的事件绑定方式：
+			// 	dv.addEventListener(eventName, handler, useCapture);
+			// 		dv.addEventListener("click", function() { });
+			// 3 IE中的事件绑定方式： 
+			// 	dv.attachEvent("on"+eventName, handler)
+			// 		dv.attachEvent("onclick", function() {});
+
+			// jQuery中绑定事件的方式:
+			// 1 click / mouseenter / blur ....
+			// 2 bind()
+			// 3 delegate()
+			// 4 on() ===> 重点
+
+
+			// 2 bind() 绑定事件
+			// 		同时绑定两个事件， 事件处理程序相同
+			// 		注意：多个事件之间通过 空格 来分割！
+			/*$("div").bind("click mouseenter", function() {
+				alert("绑定了单击事件");
+			});*/
+			// 同时绑定多个事件，事件处理程序不同
+			// $("div").bind({
+			// 	click: function() {
+			// 		alert("单击事件");
+			// 	},
+			// 	mouseenter: function() {
+			// 		alert("移上来事件");
+
+			// 	},
+			// 	mouseleave: function() {
+
+			// 		alert("离开事件");
+			// 	}
+			// });
+
+
+			// 3 delegate 委托代理
+			// 特点：能够支持给动态创建出来的元素绑定事件
+			$("button").click(function() {
+				$("body").append("<div></div>");
+			});
+
+			// 为什么不支持给动态创建出来的元素绑定事件？？？
+			// 问题： 这个事件是什么时候绑定的？ 页面加载的时候就绑定了事件
+			// 通过 "div" 选择器获取到了：一个元素
+			$("div").click(function() {
+				alert("how are you ?");
+			});
+
+
+
+			// 第一个参数：表示要触发事件的元素
+			// 第二个参数：表示事件类型
+			// 第三个参数：表示事件处理程序
+			// 
+			// 这个例子中是让 body 代理绑定了 div 的事件
+			// 因为 body 是一直存在的，然后，不管div是页面中已经存在的
+			// 还是动态创建 出来的，都能够通过 事件冒泡 来达到触发事件的目的！
+			$("body").delegate("div", "click", function() {
+				alert("how old are you?");
+			});
+
+		});
+		
+	</script>
+</head>
+<body>
+	<button>创建元素</button>
+	<div></div>
+	<p>这是p元素</p>
+</body>
+</html>
